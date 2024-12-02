@@ -38,6 +38,7 @@ function M.config()
     callback = function(args)
       lsp_keymap(args.buf)
       local client = vim.lsp.get_client_by_id(args.data.client_id)
+      client.server_capabilities.semanticTokensProvider = nil
       if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
         local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
         vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {

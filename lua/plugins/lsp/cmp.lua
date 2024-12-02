@@ -8,6 +8,7 @@ M.dependencies = {
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-nvim-lsp-signature-help",
+  "uga-rosa/cmp-dictionary",
   "hrsh7th/cmp-cmdline",
   "dmitmel/cmp-cmdline-history",
   "saadparwaiz1/cmp_luasnip",
@@ -85,6 +86,7 @@ function M.config()
       { name = "luasnip" }, -- For luasnip user
       { name = "buffer" },
       { name = "path" },
+      { name = "dictionary", keyword_length = 2},
     }),
   })
 
@@ -103,6 +105,11 @@ function M.config()
       { name = "cmdline" },
     }),
     matching = { disallow_symbol_nonprefix_matching = false },
+  })
+  
+  require("cmp_dictionary").setup({
+    paths = { "/usr/share/dict/words" },
+    exact_length = 2,
   })
 end
 
