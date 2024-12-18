@@ -33,6 +33,9 @@ require("lazy").setup({
 		enabled = true,
 		notify = false,
 	},
+	git = {
+	   url_format = "git@github.com:%s.git",
+	},
 	performance = {
 		cache = { enabled = true },
 		reset_packpath = true,
